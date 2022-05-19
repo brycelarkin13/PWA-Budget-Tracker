@@ -66,7 +66,7 @@ function checkDatabase() {
                     const store = transaction.objectStore('new_budget');
 
                     // clear all items in your store
-                    objectStore.clear();
+                    store.clear();
 
                     alert('All saved expenses have been submitted!');
 
