@@ -14,7 +14,7 @@ request.onsuccess = function (event) {
     // when db is successfully created with its object store (from oneupgradeneeded event above)  or simply established a connection, save reference to db in global variable
     db = event.target.result;
 
-    //  // check if app is online, if yes run uploadBudget() function to send all local db data to api
+    //  // check if app is online, if yes run checkDatabase() function to send all local db data to api
     if (navigator.onLine) {
         checkDatabase();
     }
@@ -66,7 +66,13 @@ function checkDatabase() {
                     const store = transaction.objectStore('new_budget');
 
                     // clear all items in your store
-                    store.clear();
+                    objectStore.clear();
+
+                    alert('All saved expenses have been submitted!');
+
+                })
+                .catch(err => {
+                    console.log(err);
                 });
         }
     };
