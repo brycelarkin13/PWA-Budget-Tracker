@@ -18,7 +18,7 @@ const FILES_TO_CACHE = [
 ];
 
 
-
+// function to install service worker
 self.addEventListener('install', function (e) {
     e.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
@@ -28,6 +28,7 @@ self.addEventListener('install', function (e) {
     )
 })
 
+// function to activate service worker
 self.addEventListener('activate', function (e) {
     e.waitUntil(
         caches.keys().then(function (keyList) {
